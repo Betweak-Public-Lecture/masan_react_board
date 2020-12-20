@@ -68,11 +68,11 @@ export default function BoardList(props){
       <Row>
         <Col>
           <ListGroup>
+            {/* TODO: 숙제: 각 리스트를 클릭하면 해당 경로에 맞는 boardDetail로 이동시키기. */}
             {boardList.map(post=>{
               return (<ListGroup.Item key={post.id}>{post.title}</ListGroup.Item>)
             })}
-            {/* <ListGroup.Item>게시글1</ListGroup.Item>
-            <ListGroup.Item>게시글2</ListGroup.Item> */}
+            
           </ListGroup>
         </Col>
       </Row>
