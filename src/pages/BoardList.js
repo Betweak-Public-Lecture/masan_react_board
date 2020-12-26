@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Button, ListGroup} from 'react-bootstrap'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function BoardList(props){
   console.log(props);
@@ -70,7 +70,19 @@ export default function BoardList(props){
           <ListGroup>
             {/* TODO: 숙제: 각 리스트를 클릭하면 해당 경로에 맞는 boardDetail로 이동시키기. */}
             {boardList.map(post=>{
-              return (<ListGroup.Item key={post.id}>{post.title}</ListGroup.Item>)
+              return (
+                // // 1번째 방법. Link Component 사용
+                // <Link to={`/board/${post.id}`} key={post.id}>
+                //   <ListGroup.Item key={post.id}>{post.title}</ListGroup.Item>
+                // </Link>
+                
+                // 2번째 방법.  history(props).push를 사용.
+                <ListGroup.Item key={post.id} onClick={()=>{
+                  history.push(`/board/${post.id}`)
+                }}>
+                  {post.title}
+                </ListGroup.Item>
+              )
             })}
             
           </ListGroup>
